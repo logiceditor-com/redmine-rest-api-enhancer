@@ -1,0 +1,15 @@
+api.watchers do
+  api.issue_id @issue.id
+
+  api.array :items do
+    @issue.watchers.each do |watcher|
+      api.watcher(:id => watcher.user_id, :name => User.find(watcher.user_id).name)
+    end
+  end
+
+  api.array :errors do
+    @errors.each do |error|
+      api.error(error)
+    end
+  end
+end
