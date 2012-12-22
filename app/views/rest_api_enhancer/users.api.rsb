@@ -1,0 +1,13 @@
+api.users do
+  api.array :items do
+    User.find(:all).each do |user|
+      api.user(:id => user.id, :name => user.name, :status => user.status)
+    end
+  end
+
+  api.array :errors do
+    @errors.each do |error|
+      api.error(error)
+    end
+  end
+end

@@ -19,4 +19,5 @@ Redmine::Plugin.register :redmine_rest_api_enhancer do
   author_url 'http://logiceditor.com'
 
   permission :rest_api_enhancer, { :rest_api_enhancer => [:watchers] }
+  permission :rest_api_enhancer, { :rest_api_enhancer => [:users] }
 end

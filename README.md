@@ -19,3 +19,9 @@ JSON output example:
     /rest_api_enhancer/issues/<ISSUE_ID>/watchers.<json|xml>?user_ids=3,4,5
 
 set watchers for ISSUE_ID
+
+---
+
+    /rest_api_enhancer/users
+
+show all users (with blocked)
