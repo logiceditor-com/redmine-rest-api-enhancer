@@ -14,10 +14,11 @@ Redmine::Plugin.register :redmine_rest_api_enhancer do
   name 'Redmine REST API Enhancer plugin'
   author 'Alexey Romanov'
   description 'Add some features to REST API'
-  version '0.0.2'
+  version '0.0.3'
   url 'http://logiceditor.com'
   author_url 'http://logiceditor.com'
 
   permission :rest_api_enhancer, { :rest_api_enhancer => [:watchers] }
   permission :rest_api_enhancer, { :rest_api_enhancer => [:users] }
+  permission :rest_api_enhancer, { :rest_api_enhancer => [:priorities] }
 end

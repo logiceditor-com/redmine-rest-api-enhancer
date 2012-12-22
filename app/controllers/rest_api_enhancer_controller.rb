@@ -5,8 +5,8 @@ class RestApiEnhancerController < ApplicationController
 
   before_filter :find_issue, :only => [:watchers]
   before_filter :authorize, :only => [:watchers]
-  before_filter :authorize_global, :only => [:users]
-  accept_api_auth :watchers, :users
+  before_filter :authorize_global, :only => [:users, :priorities]
+  accept_api_auth :watchers, :users, :priorities
 
   def prepend_view_paths
     path = File.expand_path(File.join(File.dirname(__FILE__), '../views'))
@@ -54,6 +54,19 @@ class RestApiEnhancerController < ApplicationController
   def users
     @errors = []
     if User.current.admin?
+      respond_to do |format|
+        format.api
+      end
+    else
+      flash[:error] = 'Permission denied.'
+      redirect_to :controller => 'issues', :action => 'index'
+    end
+  end
+
+  def priorities
+    @errors = []
+    if User.current.admin?
+
       respond_to do |format|
         format.api
       end

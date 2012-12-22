@@ -1,0 +1,13 @@
+api.priorities do
+  api.array :items do
+    Enumeration.find(:all, :conditions => ["type = 'IssuePriority'"]).each do |priority|
+      api.user(:id => priority.id, :name => priority.name)
+    end
+  end
+
+  api.array :errors do
+    @errors.each do |error|
+      api.error(error)
+    end
+  end
+end

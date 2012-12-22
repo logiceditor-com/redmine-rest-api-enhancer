@@ -25,3 +25,9 @@ set watchers for ISSUE_ID
     /rest_api_enhancer/users
 
 show all users (with blocked)
+
+---
+
+    /rest_api_enhancer/priorities
+
+show all issue priorities
